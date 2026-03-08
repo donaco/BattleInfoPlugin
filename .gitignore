@@ -18,6 +18,9 @@ bld/
 [Bb]in/
 [Oo]bj/
 
+# not commit
+.vs/
+
 # Roslyn cache directories
 *.ide/
 
