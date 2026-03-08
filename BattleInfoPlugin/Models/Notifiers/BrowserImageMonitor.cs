@@ -38,7 +38,8 @@ namespace BattleInfoPlugin.Models.Notifiers
 
             var proxy = KanColleClient.Current.Proxy;
 
-            proxy.api_start2
+            proxy.ApiSessionSource
+                .Where(x => x.Request.PathAndQuery == "/kcsapi/api_start2")
                 .ObserveOn(SynchronizationContext.Current)
                 .Subscribe(_ => this.FindKanColleBrowser());
 

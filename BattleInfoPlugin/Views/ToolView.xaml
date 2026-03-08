@@ -5,9 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:views="clr-namespace:BattleInfoPlugin.Views"
              xmlns:converters="clr-namespace:BattleInfoPlugin.Views.Converters"
-             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              xmlns:l="http://schemas.livet-mvvm.net/2011/wpf"
-             xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+             xmlns:core="clr-namespace:Microsoft.Xaml.Behaviors.Core;assembly=Microsoft.Xaml.Behaviors"
              xmlns:models="clr-namespace:BattleInfoPlugin.Models"
              Background="{DynamicResource ThemeBrushKey}"
              Foreground="{DynamicResource ActiveForegroundBrushKey}"
@@ -102,8 +102,8 @@
                                 Margin="0,3,4,0">
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="Click">
-                                    <ei:CallMethodAction TargetObject="{Binding}"
-                                                         MethodName="OpenEnemyWindow"/>
+                                    <core:CallMethodAction TargetObject="{Binding}"
+                                                           MethodName="OpenEnemyWindow"/>
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
                         </Button>

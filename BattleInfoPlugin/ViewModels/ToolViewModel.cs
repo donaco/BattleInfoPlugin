@@ -138,25 +138,25 @@ namespace BattleInfoPlugin.ViewModels
             {
                 {
                     () => this.BattleData.Name,
-                    (_, __) => this.RaisePropertyChanged(() => this.BattleName)
+                    (_, __) => this.RaisePropertyChanged(nameof(this.BattleName))
                 },
                 {
                     () => this.BattleData.UpdatedTime,
-                    (_, __) => this.RaisePropertyChanged(() => this.UpdatedTime)
+                    (_, __) => this.RaisePropertyChanged(nameof(this.UpdatedTime))
                 },
                 {
                     () => this.BattleData.BattleSituation,
-                    (_, __) => this.RaisePropertyChanged(() => this.BattleSituation)
+                    (_, __) => this.RaisePropertyChanged(nameof(this.BattleSituation))
                 },
                 {
                     () => this.BattleData.FriendAirSupremacy,
-                    (_, __) => this.RaisePropertyChanged(() => this.FriendAirSupremacy)
+                    (_, __) => this.RaisePropertyChanged(nameof(this.FriendAirSupremacy))
                 },
                 {
                     () => this.BattleData.AirCombatResults,
                     (_, __) =>
                     {
-                        this.RaisePropertyChanged(() => this.AirCombatResults);
+                        this.RaisePropertyChanged(nameof(this.AirCombatResults));
                         this.FirstFleet.AirCombatResults = this.AirCombatResults.Select(x => new AirCombatResultViewModel(x, FleetType.First)).ToArray();
                         this.SecondFleet.AirCombatResults = this.AirCombatResults.Select(x => new AirCombatResultViewModel(x, FleetType.Second)).ToArray();
                         this.Enemies.AirCombatResults = this.AirCombatResults.Select(x => new AirCombatResultViewModel(x, FleetType.Enemy)).ToArray();
@@ -164,7 +164,7 @@ namespace BattleInfoPlugin.ViewModels
                 },
                 {
                     () => this.BattleData.DropShipName,
-                    (_, __) => this.RaisePropertyChanged(() => this.DropShipName)
+                    (_, __) => this.RaisePropertyChanged(nameof(this.DropShipName))
                 },
                 {
                     () => this.BattleData.FirstFleet,

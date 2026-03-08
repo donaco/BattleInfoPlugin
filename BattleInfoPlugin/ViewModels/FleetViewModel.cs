@@ -42,8 +42,8 @@ namespace BattleInfoPlugin.ViewModels
                 this._Fleet = value;
                 this.RaisePropertyChanged();
 
-                this.RaisePropertyChanged(() => this.FleetFormation);
-                this.RaisePropertyChanged(() => this.IsVisible);
+                this.RaisePropertyChanged(nameof(this.FleetFormation));
+                this.RaisePropertyChanged(nameof(this.IsVisible));
 
                 this.Name = !string.IsNullOrWhiteSpace(value.Name)
                     ? value.Name

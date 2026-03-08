@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.Composition;
+using System.Reactive.Linq;
 using BattleInfoPlugin.ViewModels;
 using BattleInfoPlugin.Views;
 using Grabacr07.KanColleViewer.Composition;
@@ -30,11 +31,15 @@ namespace BattleInfoPlugin
 
         public void Initialize()
         {
-            KanColleClient.Current.Proxy.api_start2.TryParse<kcsapi_start2>().Subscribe(x =>
-            {
-                RawStart2 = x.Data;
-                Models.Repositories.Master.Current.Update(x.Data);
-            });
+            KanColleClient.Current.Proxy.ApiSessionSource
+                .Where(x => x.Request.PathAndQuery == "/kcsapi/api_start2")
+                .TryParse<kcsapi_start2>()
+                .Subscribe(x =>
+                {
+                    RawStart2 = x.Data;
+                    Models.Repositories.Master.Current.Update(x.Data);
+                });
+
             ResourceWriter = new KcsResourceWriter();
             SortieListener = new SortieDataListener();
         }

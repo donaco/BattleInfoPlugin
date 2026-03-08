@@ -120,7 +120,7 @@ namespace BattleInfoPlugin.Models
                     return;
                 this._MaxHP = value;
                 this.RaisePropertyChanged();
-                this.RaisePropertyChanged(() => this.HP);
+                this.RaisePropertyChanged(nameof(this.HP)); ;
             }
         }
         #endregion
@@ -136,7 +136,7 @@ namespace BattleInfoPlugin.Models
                     return;
                 this._NowHP = value;
                 this.RaisePropertyChanged();
-                this.RaisePropertyChanged(() => this.HP);
+                this.RaisePropertyChanged(nameof(this.HP));
             }
         }
         #endregion
